@@ -1,16 +1,44 @@
-
 <!DOCTYPE html>
 <html>
-	<head>
-    <meta charset="utf-8">
-		<title>Fighting</title>
-	</head>
-	<body>
-	    <div class="container">
-            <div id="game">
-                <canvas id="canvas"></canvas>
-   
+   <head>
+      <title>Page Title</title>
+      <link href="C:\Users\Usser\Documents\Notes\file.css" rel="stylesheet">
+      </style>
+   </head>
+   <body>
+      <div class="container">
+         <div id="game">
+            <canvas id="canvas"></canvas>
+            <div id="health-bars">
+               <div class="health-label">
+                  <strong>Player 1</strong><br><span id="p1-wins">0</span> 
+               </div>
+               <div class="health">
+                  <span class="fill" id="p1-health"></span>
+               </div>
+               <div class="health">
+                  <span class="fill" id="p2-health"></span>
+               </div>
+               <div class="health-label">
+                  <strong>Player 2</strong><br><span id="p2-wins">0</span> 
+               </div>
             </div>
-        </div>
-	</body>
+         </div>
+      </div>
+      <script>
+         (function() {
+             var requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
+             window.requestAnimationFrame = requestAnimationFrame;
+         })();
+         
+         var canvas = document.getElementById("canvas"),
+             ctx = canvas.getContext("2d"),
+             width = 800,
+             height = 400;
+         
+         canvas.width = width;
+         canvas.height = height;
+         
+      </script>
+   </body>
 </html>
