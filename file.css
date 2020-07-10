@@ -1,0 +1,42 @@
+body {
+         font-family: Arial;
+         }
+         canvas {
+         border: 1px solid #000;
+         }
+         .container {
+         margin: auto;
+         width: 800px;
+         }
+         #game {
+         margin-bottom: 15px;
+         }
+         #health-bars, #controls {
+         display: flex;
+         flex-direction: row;
+         justify-content: space-between;
+         }
+         .health-label {
+         line-height: 1.5em;
+         }
+         .health {
+         background: #ccc;
+         height: 20px;
+         position: relative;
+         width: 320px;
+         }
+         .fill {
+         background: #0a0;
+         display: block;
+         height: 20px;
+         position: absolute;
+         transition: width 0.5s;
+         }
+         #p1-health {
+         left: 0;
+         width: 0%;
+         }
+         #p2-health {
+         right: 0;
+         width: 0%;
+         }
