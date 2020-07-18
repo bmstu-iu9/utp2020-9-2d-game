@@ -1,14 +1,94 @@
-<meta charset="utf-8">
-<body bgcolor=batman>
-<font face=cursive size=6 color=vodca>
-<H1>Заготовка для статического сайта</H1>
-Для этого репозитория включены GitHub Pages, это значит, что содержимое
-репозитория автоматически становится статическим сайтом по адресу
-<br>
-https://bmstu-iu9.github.io/utp2020-9-2d-game
-<br>
-Так что Ваша задача — теперь наполнить правильным содержимым файл
-<tt>index.html</tt>.
-<p>
-P.S. Эта страница сделана максимально отвратительно (и внутри, и снаружи),
-чтобы мотивировать вас как можно скорее заменить это на что-то разумное.
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Page Title</title>
+   </head>
+   <body>
+      <img name="slide" width="480" height="360" />
+      <script>
+         // Start Point 
+         var i = 0; 			
+         
+         
+         // Images Array
+         var images = [];
+         
+         // Time Between Switch
+         var time = 1000;	
+         
+          
+         // Image List
+         
+         images[1] = "game/1.jpg";
+         images[2] = "game/2.jpg";
+         images[3] = "game/3.jpg";
+         images[4] = "game/4.jpg";
+         images[5] = "game/5.jpg";
+         images[6] = "game/6.jpg";
+         images[7] = "game/7.jpg";
+         images[8] = "game/8.jpg";
+         images[9] = "game/9.jpg";
+         images[10] = "game/10.jpg";
+         images[11] = "game/11.jpg";
+         images[12] = "game/12.jpg";
+         images[13] = "game/13.jpg";
+         images[14] = "game/14.jpg";
+         images[15] = "game/15.jpg";
+         images[16] = "game/16.jpg";
+         images[17] = "game/17.jpg";
+         images[18] = "game/18.jpg";
+         images[19] = "game/19.jpg";
+         images[20] = "game/20.jpg";
+         images[21] = "game/21.jpg";
+         images[22] = "game/22.jpg";
+         images[23] = "game/23.jpg";
+         images[24] = "game/24.jpg";
+         images[25] = "game/25.jpg";
+         images[26] = "game/26.jpg";
+         images[27] = "game/27.jpg";
+         images[28] = "game/28.jpg";
+         images[29] = "game/29.jpg";
+         images[30] = "game/30.jpg";
+         images[31] = "game/31.jpg";
+         images[32] = "game/32.jpg";
+         images[33] = "game/33.jpg";
+         images[34] = "game/34.jpg";
+         images[35] = "game/35.jpg";
+         images[36] = "game/36.jpg";
+         images[37] = "game/37.jpg";
+         images[38] = "game/38.jpg";
+         images[39] = "game/39.jpg";
+         images[40] = "game/40.jpg"; 
+         images[41] = "game/41.jpg";
+         images[42] = "game/42.jpg";
+         images[43] = "game/43.jpg";
+         
+         
+         // Change Image
+         
+         function changeImg(){
+         document.slide.src = images[i];
+         
+         // Check If Index Is Under Max
+         
+         if(i < images.length - 1){
+           // Add 1 to Index
+           i++; 
+         
+         } 
+         else { 
+         	// Reset Back To O
+         	i = 0;
+         }
+         
+         // Run function every x seconds
+         
+         setTimeout("changeImg()", time);
+         }
+         
+         // Run function when page loads
+         
+         window.onload=changeImg;
+      </script>
+   </body>
+</html>
