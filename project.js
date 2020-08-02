@@ -336,8 +336,11 @@ var updateEnemy = function (obj) {
 
 var drawObj = function (obj) {
     ctx.fillStyle = obj.color;
-    ctx.fillRect(obj.x + obj.width/4, obj.y, obj.width/2, obj.height/4);
     ctx.fillRect(obj.x + 1.5 * obj.width/4, obj.y + obj.height/4, obj.width/4, obj.height/2);
+    ctx.beginPath();
+    ctx.fillStyle = obj.color;
+    ctx.arc(obj.x + obj.width/2, obj.y + obj.width/2.5, obj.width/4, Math.PI * 2, false);
+    ctx.fill();
     segmentAnimation(obj);
 }
 
