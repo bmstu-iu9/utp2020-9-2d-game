@@ -35,7 +35,7 @@ var Enemy = {
     xVelocity: 0,
     yVelocity: 0,
     jump: true,
-    color: "black",
+    color: "red",
     a: 0
 }
 
@@ -49,7 +49,7 @@ var player = {
     xVelocity: 0,
     yVelocity: 0,
     jump: false,
-    color: "black",
+    color: "grey",
     a: 0
 };
 
@@ -59,12 +59,6 @@ var dir;
 
 var obstacles = [];
 
-obstacles[0] = new Obstacle();
-obstacles[0].set(100, 500, "img/pf.png");
-obstacles[1] = new Obstacle();
-obstacles[1].set(200, 400, "img/pf.png");
-obstacles[2] = new Obstacle();
-obstacles[2].set(300, 300, "img/pf.png");
 
 
 
@@ -265,7 +259,19 @@ var update = function () {
         }
     }
 
+    if (player.x - Enemy.x > 50)
+  {
 
+    Enemy.x += 5;
+
+    }
+
+    else if (player.x - Enemy.x < -50)
+  {
+
+    Enemy.x -= 5;
+
+    }
     player.yVelocity += 0.66;
     player.x += player.xVelocity;
     player.y += player.yVelocity;
