@@ -2,39 +2,9 @@
 <html>
    <head>
       <title>Page Title</title>
-      <style>
-   body {
-   background-color: #00FFFF;
-   }
-   .back {
-   width: 270px;
-   height: 70px;
-   background: #0000FF;
-   color: #FFFFCC;
-   text-decoration: none;
-   border-radius: 10px;
-   text-align: center;
-   font-size: 15pt;
-   position: absolute;
-   bottom: 5%;
-   right: 4%;
-   margin: auto;
-   font-size: 30pt;
-   }
-   .in {
-   line-height: 70px;
-   vertical-align: middle;
-   }
-   .back:hover {
-   background: #005CFF;
-   }
-</style>
    </head>
    <body>
       <img name="slide" width="480" height="360" />
-      <div>
-    <a href="Project.html" class="back"> <div class="in">Skip</div> </a>
-  </div>
       <script>
          // Start Point 
          var i = 0; 			
@@ -77,7 +47,15 @@
          "game/32.jpg",
          "game/33.jpg",
          "game/34.jpg",
-         "game/35.jpg"
+         "game/35.jpg",
+         "game/36.jpg",
+         "game/37.jpg",
+         "game/38.jpg",
+         "game/39.jpg",
+         "game/40.jpg", 
+         "game/41.jpg",
+         "game/42.jpg",
+         "game/43.jpg" 
          ];
          
          // Time Between Switch
@@ -95,7 +73,10 @@
            i++; 
          
          } 
-         
+         else { 
+         	// Reset Back To O
+         	i = 0;
+         }
          
          // Run function every x seconds 
          setTimeout("changeImg()", time);
