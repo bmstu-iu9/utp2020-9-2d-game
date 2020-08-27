@@ -1,4 +1,4 @@
-const canvas = document.getElementById("game");
+﻿const canvas = document.getElementById("game");
 const ctx = canvas.getContext("2d");
 
 width = 800;
@@ -144,6 +144,8 @@ var drawRect = function (obj, x, y, a) {
     ctx.restore();
 }
 
+
+
 var segmentAnimation = function (obj) {
 
     var handL = {
@@ -197,48 +199,57 @@ var segmentAnimation = function (obj) {
         if(obj.a < 20) obj.a = 20;
         drawControllerAnimation(1, 1, 1, 1);
 
-    //
-    //      Hit Animation
-    //
-    //} else if(controller.hit){
-    //     if(dir === "left"){
-    //         if(random === 1) {
-    //             drawRect(handL, handL.x + handL.width / 2, handL.y + handL.width / 2, 90)
-    //             drawRect(handR, handR.x + handR.width / 2, handR.y + handR.width / 2, -5)
-    //             drawRect(legL, legL.x + legL.width / 2, legL.y + legL.width / 2, 5)
-    //             drawRect(legR, legR.x + legR.width / 2, legR.y + legR.width / 2, -5)
-    //         }
-    //         else {
-    //             drawRect(handL, handL.x + handL.width / 2, handL.y + handL.width / 2, 5)
-    //             drawRect(handR, handR.x + handR.width / 2, handR.y + handR.width / 2, -5)
-    //             drawRect(legL, legL.x + legL.width / 2, legL.y + legL.width / 2, 90)
-    //             drawRect(legR, legR.x + legR.width / 2, legR.y + legR.width / 2, -5)
-    //         }
-    //     }
-    //     if(dir === "right"){
-    //         if(random === 1) {
-    //             drawRect(handL, handL.x + handL.width / 2, handL.y + handL.width / 2, 5)
-    //             drawRect(handR, handR.x + handR.width / 2, handR.y + handR.width / 2, -90)
-    //             drawRect(legL, legL.x + legL.width / 2, legL.y + legL.width / 2, 5)
-    //             drawRect(legR, legR.x + legR.width / 2, legR.y + legR.width / 2, -5)
-    //         }
-    //         else {
-    //             drawRect(handL, handL.x + handL.width / 2, handL.y + handL.width / 2, 5)
-    //             drawRect(handR, handR.x + handR.width / 2, handR.y + handR.width / 2, -5)
-    //             drawRect(legL, legL.x + legL.width / 2, legL.y + legL.width / 2, 5)
-    //             drawRect(legR, legR.x + legR.width / 2, legR.y + legR.width / 2, -90)
-    //         }
-    //     }
+    
+          
+    
+    } else if(controller.hit){
+         if(dir === "left"){
+             if(random === 1) {
+                 drawRect(handL, handL.x + handL.width / 2, handL.y + handL.width / 2, 90)
+                drawRect(handR, handR.x + handR.width / 2, handR.y + handR.width / 2, -5)
+                 drawRect(legL, legL.x + legL.width / 2, legL.y + legL.width / 2, 5)
+                 drawRect(legR, legR.x + legR.width / 2, legR.y + legR.width / 2, -5)
+             }
+             else {
+                 drawRect(handL, handL.x + handL.width / 2, handL.y + handL.width / 2, 5)
+                 drawRect(handR, handR.x + handR.width / 2, handR.y + handR.width / 2, -5)
+                 drawRect(legL, legL.x + legL.width / 2, legL.y + legL.width / 2, 90)
+                 drawRect(legR, legR.x + legR.width / 2, legR.y + legR.width / 2, -5)
+             }
+         }
+         if(dir === "right"){
+             if(random === 1) {
+                 drawRect(handL, handL.x + handL.width / 2, handL.y + handL.width / 2, 5)
+                 drawRect(handR, handR.x + handR.width / 2, handR.y + handR.width / 2, -90)
+                 drawRect(legL, legL.x + legL.width / 2, legL.y + legL.width / 2, 5)
+                 drawRect(legR, legR.x + legR.width / 2, legR.y + legR.width / 2, -5)
+             }
+             else {
+                 drawRect(handL, handL.x + handL.width / 2, handL.y + handL.width / 2, 5)
+                 drawRect(handR, handR.x + handR.width / 2, handR.y + handR.width / 2, -5)
+                 drawRect(legL, legL.x + legL.width / 2, legL.y + legL.width / 2, 5)
+                 drawRect(legR, legR.x + legR.width / 2, legR.y + legR.width / 2, -90)
+             }
+         }
     } else if(obj.xVelocity === 0 && !obj.jump) {
         obj.a = 5;
         drawControllerAnimation(1, 1, 1, 1);
     }
 
 }
-
+//var h = document.getElementById("h");
 var update = function () {
     player.xPrev = player.x;
-    player.yPrev = player.y;
+    player.yPrev = player.y;var n=100;
+if(player.x-Enemy.x==0&&Enemy.color != "green"&&Enemy.color != "blue"){alert("you won");
+    player.x=200;
+    Enemy.x=700;Enemy.color = "green";
+    var h = document.getElementById(h).innerHTML;
+h='2';
+    
+}if(player.x-Enemy.x==0&&Enemy.color == "green" ){alert("you won");Enemy.color = "blue";player.x=200;
+    Enemy.x=700;}if(player.x-Enemy.x==0&&Enemy.color == "blue" ){alert("you won");Enemy.color = "yellow";player.x=200;
+    Enemy.x=700;}
 
     if (controller.up && player.jump === false) {
         player.yVelocity -= 15;
@@ -272,6 +283,8 @@ var update = function () {
     Enemy.x -= 5;
 
     }
+while(player.x-Enemy.x==0){n=n-10;}
+
     player.yVelocity += 0.66;
     player.x += player.xVelocity;
     player.y += player.yVelocity;
@@ -309,12 +322,12 @@ var updateEnemy = function (obj) {
         obj.xVelocity += 3;
         dir = "right"
     }
-    // if (controller.hit) {
-    //     if (dir === "left"){
-    //     }
-    //     if (dir === "right"){
-    //     }
-    // }
+     if (controller.hit) {
+         if (dir === "left"){
+         }
+         if (dir === "right"){
+         }
+     }
 
 
     obj.yVelocity += 0.66;
@@ -351,7 +364,7 @@ var drawObj = function (obj) {
 }
 
 var draw = function (then) {
-    ctx.fillStyle = '#ffffff';
+    ctx.fillStyle = '#50F1FC';
     ctx.fillRect(0, 0, width, height);
 
     drawObj(player);
@@ -363,7 +376,82 @@ var draw = function (then) {
     }
 }
 
+
 startAnimation(FPS);
 
 window.addEventListener("keydown", controller.keyListener);
 window.addEventListener("keyup", controller.keyListener);
+var platforms = [];
+var platThickness = 10;
+
+// left wall
+platforms.push({
+    x: 0,
+    y: 0,
+    width: 10,
+    height: height
+});
+// right wall
+platforms.push({
+    x: width - 10,
+    y: 0,
+    width: 10,
+    height: height
+});
+// floor
+platforms.push({
+    x: 0,
+    y: height - 10,
+    width: width,
+    height: 50
+});
+// ceiling
+platforms.push({
+    x: 0,
+    y: 0,
+    width: width,
+    height: platThickness
+});
+// platforms
+document.onreadystatechange = _ => {
+    if(document.readyState === 'complete') {
+        
+        
+        
+        
+        let controlledProgressBar = document.querySelector('.controll');
+        let upButton = document.querySelector('#up');
+        let downButton = document.querySelector('#down');
+        let output = document.querySelector('output');
+        
+        
+        
+       
+        
+        downButton.addEventListener('click', function() {
+            controlledProgressBar.value -= 5;
+            output.value = controlledProgressBar.value;
+        });
+        
+        upButton.addEventListener('click', function() {
+            controlledProgressBar.value += 5;
+            output.value = controlledProgressBar.value;
+        });
+        
+        // console.dir(controlledProgressBar)
+        
+    }
+};
+
+function minus(){
+    var x = document.getElementById("bar").value;
+    document.getElementById("bar").value = x - 5;
+}
+function plus(){
+    var x = document.getElementById("bar").value;
+    document.getElementById("bar").value = x + 5;
+}
+function reset(){
+    var x = 0;
+    document.getElementById("bar").value = x;
+}
