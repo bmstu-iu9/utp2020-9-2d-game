@@ -61,7 +61,6 @@ var obstacles = [];
 
 
 
-
 var controller = {
     left: false,
     right: false,
@@ -237,19 +236,18 @@ var segmentAnimation = function (obj) {
     }
 
 }
-//var h = document.getElementById("h");
+
 var update = function () {
     player.xPrev = player.x;
     player.yPrev = player.y;var n=100;
 if(player.x-Enemy.x==0&&Enemy.color != "green"&&Enemy.color != "blue"){alert("you won");
     player.x=200;
     Enemy.x=700;Enemy.color = "green";
-    var h = document.getElementById(h).innerHTML;
-h='2';
+    score = 2;
     
 }if(player.x-Enemy.x==0&&Enemy.color == "green" ){alert("you won");Enemy.color = "blue";player.x=200;
-    Enemy.x=700;}if(player.x-Enemy.x==0&&Enemy.color == "blue" ){alert("you won");Enemy.color = "yellow";player.x=200;
-    Enemy.x=700;}
+    Enemy.x=700;score = 3;}if(player.x-Enemy.x==0&&Enemy.color == "blue" ){alert("you won");Enemy.color = "yellow";player.x=200;
+    Enemy.x=700;score = 4;}
 
     if (controller.up && player.jump === false) {
         player.yVelocity -= 15;
@@ -366,6 +364,10 @@ var drawObj = function (obj) {
 var draw = function (then) {
     ctx.fillStyle = '#50F1FC';
     ctx.fillRect(0, 0, width, height);
+var score = 1;
+ ctx.fillStyle = "#FFFFFF";
+ ctx.font = "24px Verdana";
+ ctx.fillText("Level " + score, 333, 200);
 
     drawObj(player);
 
@@ -375,7 +377,6 @@ var draw = function (then) {
         ctx.drawImage(obstacles[i].image, obstacles[i].x, obstacles[i].y);
     }
 }
-
 
 startAnimation(FPS);
 
