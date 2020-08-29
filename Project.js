@@ -77,8 +77,11 @@ var controller = {
             case 39:
                 controller.right = keyState;
                 break;
-            case 65:
+            case 88:
                 controller.hit = keyState;
+                break;
+            case 90:
+                controller.hit1 = keyState;
                 break;
         }
     }
@@ -201,7 +204,7 @@ var segmentAnimation = function (obj) {
     
           
     
-    } else if(controller.hit){
+    } else if(controller.hit){minus1();
          if(dir === "left"){
              if(random === 1) {
                  drawRect(handL, handL.x + handL.width / 2, handL.y + handL.width / 2, 90)
@@ -305,7 +308,7 @@ while(player.x-Enemy.x==0){n=n-10;}
     }
 }
 
-var updateEnemy = function (obj) {
+var updateEnemy = function (obj) {if(player.x - Enemy.x > -50 && player.x - Enemy.x < 50){minus();}
     obj.xPrev = obj.x;
     obj.yPrev = obj.y;
 
@@ -382,77 +385,20 @@ startAnimation(FPS);
 
 window.addEventListener("keydown", controller.keyListener);
 window.addEventListener("keyup", controller.keyListener);
-var platforms = [];
-var platThickness = 10;
 
-// left wall
-platforms.push({
-    x: 0,
-    y: 0,
-    width: 10,
-    height: height
-});
-// right wall
-platforms.push({
-    x: width - 10,
-    y: 0,
-    width: 10,
-    height: height
-});
-// floor
-platforms.push({
-    x: 0,
-    y: height - 10,
-    width: width,
-    height: 50
-});
-// ceiling
-platforms.push({
-    x: 0,
-    y: 0,
-    width: width,
-    height: platThickness
-});
-// platforms
-document.onreadystatechange = _ => {
-    if(document.readyState === 'complete') {
-        
-        
-        
-        
-        let controlledProgressBar = document.querySelector('.controll');
-        let upButton = document.querySelector('#up');
-        let downButton = document.querySelector('#down');
-        let output = document.querySelector('output');
-        
-        
-        
-       
-        
-        downButton.addEventListener('click', function() {
-            controlledProgressBar.value -= 5;
-            output.value = controlledProgressBar.value;
-        });
-        
-        upButton.addEventListener('click', function() {
-            controlledProgressBar.value += 5;
-            output.value = controlledProgressBar.value;
-        });
-        
-        // console.dir(controlledProgressBar)
-        
-    }
-};
+
+
 
 function minus(){
     var x = document.getElementById("bar").value;
-    document.getElementById("bar").value = x - 5;
+    document.getElementById("bar").value = x - 0.1;
 }
-function plus(){
-    var x = document.getElementById("bar").value;
-    document.getElementById("bar").value = x + 5;
+function minus1(){
+    var x = document.getElementById("bar1").value;
+    document.getElementById("bar1").value = x - 0.1;
 }
 function reset(){
     var x = 0;
     document.getElementById("bar").value = x;
 }
+
