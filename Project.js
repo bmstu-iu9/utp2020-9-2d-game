@@ -202,9 +202,12 @@ var segmentAnimation = function (obj) {
         drawControllerAnimation(1, 1, 1, 1);
 
     
-          
+ 
     
-    } else if(controller.hit){minus1();
+    } 
+else if(document.getElementById("bar").value == 0||document.getElementById("bar1").value == 0){reset();reset1();
+}
+else if(controller.hit ||controller.hit1){minus1();
          if(dir === "left"){
              if(random === 1) {
                  drawRect(handL, handL.x + handL.width / 2, handL.y + handL.width / 2, 90)
@@ -243,14 +246,7 @@ var segmentAnimation = function (obj) {
 var update = function () {
     player.xPrev = player.x;
     player.yPrev = player.y;var n=100;
-if(player.x-Enemy.x==0&&Enemy.color != "green"&&Enemy.color != "blue"){alert("you won");
-    player.x=200;
-    Enemy.x=700;Enemy.color = "green";
-    score = 2;
-    
-}if(player.x-Enemy.x==0&&Enemy.color == "green" ){alert("you won");Enemy.color = "blue";player.x=200;
-    Enemy.x=700;score = 3;}if(player.x-Enemy.x==0&&Enemy.color == "blue" ){alert("you won");Enemy.color = "yellow";player.x=200;
-    Enemy.x=700;score = 4;}
+
 
     if (controller.up && player.jump === false) {
         player.yVelocity -= 15;
@@ -284,7 +280,8 @@ if(player.x-Enemy.x==0&&Enemy.color != "green"&&Enemy.color != "blue"){alert("yo
     Enemy.x -= 5;
 
     }
-while(player.x-Enemy.x==0){n=n-10;}
+
+
 
     player.yVelocity += 0.66;
     player.x += player.xVelocity;
@@ -330,7 +327,14 @@ var updateEnemy = function (obj) {if(player.x - Enemy.x > -50 && player.x - Enem
          }
      }
 
-
+if(player.x-Enemy.x==0&&Enemy.color != "green"&&Enemy.color != "blue"){alert("you won");
+    player.x=200;
+    Enemy.x=700;Enemy.color = "green";
+    score = 2;
+    
+}if(player.x-Enemy.x==0&&Enemy.color == "green" ){alert("you won");Enemy.color = "blue";player.x=200;
+    Enemy.x=700;score = 3;}if(player.x-Enemy.x==0&&Enemy.color == "blue" ){alert("you won");Enemy.color = "yellow";player.x=200;
+    Enemy.x=700;score = 4;}
     obj.yVelocity += 0.66;
     obj.x += obj.xVelocity;
     obj.y += obj.yVelocity;
@@ -362,25 +366,41 @@ var drawObj = function (obj) {
     ctx.arc(obj.x + obj.width/2, obj.y + obj.width/2.5, obj.width/4, Math.PI * 2, false);
     ctx.fill();
     segmentAnimation(obj);
+if(player.x-Enemy.x==0&&Enemy.color != "green"&&Enemy.color != "blue"){reset();reset1();
+    player.x=200;
+    Enemy.x=700;Enemy.color = "green";
+    score = 2;
+    
+}if(player.x-Enemy.x==0&&Enemy.color == "green" ){reset();reset1();Enemy.color = "blue";player.x=200;
+    Enemy.x=700;score = 3;}if(player.x-Enemy.x==0&&Enemy.color == "blue" ){reset();reset1();Enemy.color = "yellow";player.x=200;
+    Enemy.x=700;score = 4;}
 }
-
+var score = 1;
 var draw = function (then) {
     ctx.fillStyle = '#50F1FC';
     ctx.fillRect(0, 0, width, height);
-var score = 1;
+
  ctx.fillStyle = "#FFFFFF";
  ctx.font = "24px Verdana";
  ctx.fillText("Level " + score, 333, 200);
 
-    drawObj(player);
 
+    drawObj(player);
     drawObj(Enemy);
 
     for(var i = 0; i < obstacles.length; i++){
         ctx.drawImage(obstacles[i].image, obstacles[i].x, obstacles[i].y);
     }
 }
-
+if(player.x-Enemy.x==0&&Enemy.color != "green"&&Enemy.color != "blue"){reset();reset1();
+    player.x=200;
+    Enemy.x=700;Enemy.color = "green";
+    score = 2;
+    
+}if(player.x-Enemy.x==0&&Enemy.color == "green" ){reset();reset1();Enemy.color = "blue";player.x=200;
+    Enemy.x=700;score = 3;}if(player.x-Enemy.x==0&&Enemy.color == "blue" ){reset();reset1();Enemy.color = "yellow";player.x=200;
+    Enemy.x=700;score = 4;}
+    
 startAnimation(FPS);
 
 window.addEventListener("keydown", controller.keyListener);
@@ -398,7 +418,11 @@ function minus1(){
     document.getElementById("bar1").value = x - 0.1;
 }
 function reset(){
-    var x = 0;
+    var x = 100;
     document.getElementById("bar").value = x;
+}
+function reset1(){
+    var y = 100;
+    document.getElementById("bar1").value = y;
 }
 
