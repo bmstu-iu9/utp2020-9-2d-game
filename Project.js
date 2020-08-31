@@ -327,14 +327,17 @@ var updateEnemy = function (obj) {if(player.x - Enemy.x > -50 && player.x - Enem
          }
      }
 
-if(player.x-Enemy.x==0&&Enemy.color != "green"&&Enemy.color != "blue"){alert("you won");
+if((document.getElementById("bar1").value == 0.001)&&Enemy.color != "green"&&Enemy.color != "blue"){
     player.x=200;
     Enemy.x=700;Enemy.color = "green";
     score = 2;
     
-}if(player.x-Enemy.x==0&&Enemy.color == "green" ){alert("you won");Enemy.color = "blue";player.x=200;
-    Enemy.x=700;score = 3;}if(player.x-Enemy.x==0&&Enemy.color == "blue" ){alert("you won");Enemy.color = "yellow";player.x=200;
-    Enemy.x=700;score = 4;}
+} if((document.getElementById("bar1").value == 0)&&Enemy.color == "green" ){Enemy.color = "blue";player.x=200;
+    Enemy.x=700;score = 3;}  if((document.getElementById("bar1").value == 0)&&Enemy.color == "blue"&&Enemy.color != "red"&&Enemy.color != "green" ){Enemy.color = "yellow"; player.x=200;
+    Enemy.x=700;score = 4;} 
+    if((document.getElementById("bar").value == 0) ){alert("blue"); location.href = 'index.html'; }
+if((document.getElementById("bar1").value == 0)&& score == 4){alert("You won! Congratulations!!"); location.href = 'Final.html'; }
+ 
     obj.yVelocity += 0.66;
     obj.x += obj.xVelocity;
     obj.y += obj.yVelocity;
@@ -366,13 +369,13 @@ var drawObj = function (obj) {
     ctx.arc(obj.x + obj.width/2, obj.y + obj.width/2.5, obj.width/4, Math.PI * 2, false);
     ctx.fill();
     segmentAnimation(obj);
-if(player.x-Enemy.x==0&&Enemy.color != "green"&&Enemy.color != "blue"){reset();reset1();
+if((document.getElementById("bar1").value == 0)&&Enemy.color != "green"&&Enemy.color != "blue"){reset();reset1();
     player.x=200;
     Enemy.x=700;Enemy.color = "green";
     score = 2;
     
-}if(player.x-Enemy.x==0&&Enemy.color == "green" ){reset();reset1();Enemy.color = "blue";player.x=200;
-    Enemy.x=700;score = 3;}if(player.x-Enemy.x==0&&Enemy.color == "blue" ){reset();reset1();Enemy.color = "yellow";player.x=200;
+}if((document.getElementById("bar1").value == 0)&&Enemy.color == "green" ){reset();reset1();Enemy.color = "blue";player.x=200;
+    Enemy.x=700;score = 3;}if((document.getElementById("bar1").value == 0)&&Enemy.color == "blue" ){reset();reset1();Enemy.color = "yellow";player.x=200;
     Enemy.x=700;score = 4;}
 }
 var score = 1;
@@ -392,13 +395,13 @@ var draw = function (then) {
         ctx.drawImage(obstacles[i].image, obstacles[i].x, obstacles[i].y);
     }
 }
-if(player.x-Enemy.x==0&&Enemy.color != "green"&&Enemy.color != "blue"){reset();reset1();
+if((document.getElementById("bar1").value == 0)&&Enemy.color != "green"&&Enemy.color != "blue"){reset();reset1();
     player.x=200;
     Enemy.x=700;Enemy.color = "green";
     score = 2;
     
-}if(player.x-Enemy.x==0&&Enemy.color == "green" ){reset();reset1();Enemy.color = "blue";player.x=200;
-    Enemy.x=700;score = 3;}if(player.x-Enemy.x==0&&Enemy.color == "blue" ){reset();reset1();Enemy.color = "yellow";player.x=200;
+}if((document.getElementById("bar1").value == 0)&&Enemy.color == "green" ){reset();reset1();Enemy.color = "blue";player.x=200;
+    Enemy.x=700;score = 3;}if((document.getElementById("bar1").value == 0)&&Enemy.color == "blue" ){reset();reset1();Enemy.color = "yellow";player.x=200;
     Enemy.x=700;score = 4;}
     
 startAnimation(FPS);
