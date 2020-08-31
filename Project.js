@@ -1,4 +1,4 @@
-const canvas = document.getElementById("game");
+﻿const canvas = document.getElementById("game");
 const ctx = canvas.getContext("2d");
 
 width = 800;
@@ -61,7 +61,6 @@ var obstacles = [];
 
 
 
-
 var controller = {
     left: false,
     right: false,
@@ -78,8 +77,11 @@ var controller = {
             case 39:
                 controller.right = keyState;
                 break;
-            case 65:
+            case 88:
                 controller.hit = keyState;
+                break;
+            case 90:
+                controller.hit1 = keyState;
                 break;
         }
     }
@@ -144,6 +146,8 @@ var drawRect = function (obj, x, y, a) {
     ctx.restore();
 }
 
+
+
 var segmentAnimation = function (obj) {
 
     var handL = {
@@ -197,38 +201,41 @@ var segmentAnimation = function (obj) {
         if(obj.a < 20) obj.a = 20;
         drawControllerAnimation(1, 1, 1, 1);
 
-    //
-    //      Hit Animation
-    //
-    //} else if(controller.hit){
-    //     if(dir === "left"){
-    //         if(random === 1) {
-    //             drawRect(handL, handL.x + handL.width / 2, handL.y + handL.width / 2, 90)
-    //             drawRect(handR, handR.x + handR.width / 2, handR.y + handR.width / 2, -5)
-    //             drawRect(legL, legL.x + legL.width / 2, legL.y + legL.width / 2, 5)
-    //             drawRect(legR, legR.x + legR.width / 2, legR.y + legR.width / 2, -5)
-    //         }
-    //         else {
-    //             drawRect(handL, handL.x + handL.width / 2, handL.y + handL.width / 2, 5)
-    //             drawRect(handR, handR.x + handR.width / 2, handR.y + handR.width / 2, -5)
-    //             drawRect(legL, legL.x + legL.width / 2, legL.y + legL.width / 2, 90)
-    //             drawRect(legR, legR.x + legR.width / 2, legR.y + legR.width / 2, -5)
-    //         }
-    //     }
-    //     if(dir === "right"){
-    //         if(random === 1) {
-    //             drawRect(handL, handL.x + handL.width / 2, handL.y + handL.width / 2, 5)
-    //             drawRect(handR, handR.x + handR.width / 2, handR.y + handR.width / 2, -90)
-    //             drawRect(legL, legL.x + legL.width / 2, legL.y + legL.width / 2, 5)
-    //             drawRect(legR, legR.x + legR.width / 2, legR.y + legR.width / 2, -5)
-    //         }
-    //         else {
-    //             drawRect(handL, handL.x + handL.width / 2, handL.y + handL.width / 2, 5)
-    //             drawRect(handR, handR.x + handR.width / 2, handR.y + handR.width / 2, -5)
-    //             drawRect(legL, legL.x + legL.width / 2, legL.y + legL.width / 2, 5)
-    //             drawRect(legR, legR.x + legR.width / 2, legR.y + legR.width / 2, -90)
-    //         }
-    //     }
+    
+ 
+    
+    } 
+else if(document.getElementById("bar").value == 0||document.getElementById("bar1").value == 0){reset();reset1();
+}
+else if(controller.hit ||controller.hit1){minus1();
+         if(dir === "left"){
+             if(random === 1) {
+                 drawRect(handL, handL.x + handL.width / 2, handL.y + handL.width / 2, 90)
+                drawRect(handR, handR.x + handR.width / 2, handR.y + handR.width / 2, -5)
+                 drawRect(legL, legL.x + legL.width / 2, legL.y + legL.width / 2, 5)
+                 drawRect(legR, legR.x + legR.width / 2, legR.y + legR.width / 2, -5)
+             }
+             else {
+                 drawRect(handL, handL.x + handL.width / 2, handL.y + handL.width / 2, 5)
+                 drawRect(handR, handR.x + handR.width / 2, handR.y + handR.width / 2, -5)
+                 drawRect(legL, legL.x + legL.width / 2, legL.y + legL.width / 2, 90)
+                 drawRect(legR, legR.x + legR.width / 2, legR.y + legR.width / 2, -5)
+             }
+         }
+         if(dir === "right"){
+             if(random === 1) {
+                 drawRect(handL, handL.x + handL.width / 2, handL.y + handL.width / 2, 5)
+                 drawRect(handR, handR.x + handR.width / 2, handR.y + handR.width / 2, -90)
+                 drawRect(legL, legL.x + legL.width / 2, legL.y + legL.width / 2, 5)
+                 drawRect(legR, legR.x + legR.width / 2, legR.y + legR.width / 2, -5)
+             }
+             else {
+                 drawRect(handL, handL.x + handL.width / 2, handL.y + handL.width / 2, 5)
+                 drawRect(handR, handR.x + handR.width / 2, handR.y + handR.width / 2, -5)
+                 drawRect(legL, legL.x + legL.width / 2, legL.y + legL.width / 2, 5)
+                 drawRect(legR, legR.x + legR.width / 2, legR.y + legR.width / 2, -90)
+             }
+         }
     } else if(obj.xVelocity === 0 && !obj.jump) {
         obj.a = 5;
         drawControllerAnimation(1, 1, 1, 1);
@@ -238,7 +245,8 @@ var segmentAnimation = function (obj) {
 
 var update = function () {
     player.xPrev = player.x;
-    player.yPrev = player.y;
+    player.yPrev = player.y;var n=100;
+
 
     if (controller.up && player.jump === false) {
         player.yVelocity -= 15;
@@ -272,6 +280,9 @@ var update = function () {
     Enemy.x -= 5;
 
     }
+
+
+
     player.yVelocity += 0.66;
     player.x += player.xVelocity;
     player.y += player.yVelocity;
@@ -294,7 +305,7 @@ var update = function () {
     }
 }
 
-var updateEnemy = function (obj) {
+var updateEnemy = function (obj) {if(player.x - Enemy.x > -50 && player.x - Enemy.x < 50){minus();}
     obj.xPrev = obj.x;
     obj.yPrev = obj.y;
 
@@ -309,14 +320,24 @@ var updateEnemy = function (obj) {
         obj.xVelocity += 3;
         dir = "right"
     }
-    // if (controller.hit) {
-    //     if (dir === "left"){
-    //     }
-    //     if (dir === "right"){
-    //     }
-    // }
+     if (controller.hit) {
+         if (dir === "left"){
+         }
+         if (dir === "right"){
+         }
+     }
 
-
+if((document.getElementById("bar1").value == 0.001)&&Enemy.color != "green"&&Enemy.color != "blue"){
+    player.x=200;
+    Enemy.x=700;Enemy.color = "green";
+    score = 2;
+    
+} if((document.getElementById("bar1").value == 0)&&Enemy.color == "green" ){Enemy.color = "blue";player.x=200;
+    Enemy.x=700;score = 3;}  if((document.getElementById("bar1").value == 0)&&Enemy.color == "blue"&&Enemy.color != "red"&&Enemy.color != "green" ){Enemy.color = "yellow"; player.x=200;
+    Enemy.x=700;score = 4;} 
+    if((document.getElementById("bar").value == 0) ){alert("blue"); location.href = 'index.html'; }
+if((document.getElementById("bar1").value == 0)&& score == 4){alert("You won! Congratulations!!"); location.href = 'Final.html'; }
+ 
     obj.yVelocity += 0.66;
     obj.x += obj.xVelocity;
     obj.y += obj.yVelocity;
@@ -348,22 +369,63 @@ var drawObj = function (obj) {
     ctx.arc(obj.x + obj.width/2, obj.y + obj.width/2.5, obj.width/4, Math.PI * 2, false);
     ctx.fill();
     segmentAnimation(obj);
+if((document.getElementById("bar1").value == 0)&&Enemy.color != "green"&&Enemy.color != "blue"){reset();reset1();
+    player.x=200;
+    Enemy.x=700;Enemy.color = "green";
+    score = 2;
+    
+}if((document.getElementById("bar1").value == 0)&&Enemy.color == "green" ){reset();reset1();Enemy.color = "blue";player.x=200;
+    Enemy.x=700;score = 3;}if((document.getElementById("bar1").value == 0)&&Enemy.color == "blue" ){reset();reset1();Enemy.color = "yellow";player.x=200;
+    Enemy.x=700;score = 4;}
 }
-
+var score = 1;
 var draw = function (then) {
-    ctx.fillStyle = '#ffffff';
+    ctx.fillStyle = '#50F1FC';
     ctx.fillRect(0, 0, width, height);
 
-    drawObj(player);
+ ctx.fillStyle = "#FFFFFF";
+ ctx.font = "24px Verdana";
+ ctx.fillText("Level " + score, 333, 200);
 
+
+    drawObj(player);
     drawObj(Enemy);
 
     for(var i = 0; i < obstacles.length; i++){
         ctx.drawImage(obstacles[i].image, obstacles[i].x, obstacles[i].y);
     }
 }
-
+if((document.getElementById("bar1").value == 0)&&Enemy.color != "green"&&Enemy.color != "blue"){reset();reset1();
+    player.x=200;
+    Enemy.x=700;Enemy.color = "green";
+    score = 2;
+    
+}if((document.getElementById("bar1").value == 0)&&Enemy.color == "green" ){reset();reset1();Enemy.color = "blue";player.x=200;
+    Enemy.x=700;score = 3;}if((document.getElementById("bar1").value == 0)&&Enemy.color == "blue" ){reset();reset1();Enemy.color = "yellow";player.x=200;
+    Enemy.x=700;score = 4;}
+    
 startAnimation(FPS);
 
 window.addEventListener("keydown", controller.keyListener);
 window.addEventListener("keyup", controller.keyListener);
+
+
+
+
+function minus(){
+    var x = document.getElementById("bar").value;
+    document.getElementById("bar").value = x - 0.1;
+}
+function minus1(){
+    var x = document.getElementById("bar1").value;
+    document.getElementById("bar1").value = x - 0.1;
+}
+function reset(){
+    var x = 100;
+    document.getElementById("bar").value = x;
+}
+function reset1(){
+    var y = 100;
+    document.getElementById("bar1").value = y;
+}
+
