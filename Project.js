@@ -58,8 +58,11 @@ var k = 1;
 var dir;
 
 var obstacles = [];
+var score_audio = new Audio();
 
-
+score_audio.src = "Rocky-II-Rocky_s-Run-_1979_-YouTube-_online-video-cutter.com_-_1_.mp3";
+if(1==1 ){
+score_audio.play();}
 
 var controller = {
     left: false,
@@ -207,7 +210,8 @@ var segmentAnimation = function (obj) {
     } 
 else if(document.getElementById("bar").value == 0||document.getElementById("bar1").value == 0){reset();reset1();
 }
-else if(controller.hit ||controller.hit1){minus1();
+
+else if(controller.hit ||controller.hit1||controller.up){minus1();
          if(dir === "left"){
              if(random === 1) {
                  drawRect(handL, handL.x + handL.width / 2, handL.y + handL.width / 2, 90)
@@ -327,7 +331,7 @@ var updateEnemy = function (obj) {if(player.x - Enemy.x > -50 && player.x - Enem
          }
      }
 
-if((document.getElementById("bar1").value == 0.001)&&Enemy.color != "green"&&Enemy.color != "blue"){
+if((document.getElementById("bar1").value == 0)&&Enemy.color != "green"&&Enemy.color != "blue"){
     player.x=200;
     Enemy.x=700;Enemy.color = "green";
     score = 2;
@@ -335,8 +339,8 @@ if((document.getElementById("bar1").value == 0.001)&&Enemy.color != "green"&&Ene
 } if((document.getElementById("bar1").value == 0)&&Enemy.color == "green" ){Enemy.color = "blue";player.x=200;
     Enemy.x=700;score = 3;}  if((document.getElementById("bar1").value == 0)&&Enemy.color == "blue"&&Enemy.color != "red"&&Enemy.color != "green" ){Enemy.color = "yellow"; player.x=200;
     Enemy.x=700;score = 4;} 
-    if((document.getElementById("bar").value == 0) ){alert("blue"); location.href = 'index.html'; }
-if((document.getElementById("bar1").value == 0)&& score == 4){alert("You won! Congratulations!!"); location.href = 'Final.html'; }
+    if((document.getElementById("bar").value == 0) ){alert("You lost! "); location.href = 'index.html'; }
+
  
     obj.yVelocity += 0.66;
     obj.x += obj.xVelocity;
@@ -403,7 +407,7 @@ if((document.getElementById("bar1").value == 0)&&Enemy.color != "green"&&Enemy.c
 }if((document.getElementById("bar1").value == 0)&&Enemy.color == "green" ){reset();reset1();Enemy.color = "blue";player.x=200;
     Enemy.x=700;score = 3;}if((document.getElementById("bar1").value == 0)&&Enemy.color == "blue" ){reset();reset1();Enemy.color = "yellow";player.x=200;
     Enemy.x=700;score = 4;}
-    
+    if(document.getElementById("bar1").value == 0&&Enemy.color == "yellow"){alert("You won! Congratulations!!"); location.href = 'Final.html'; }
 startAnimation(FPS);
 
 window.addEventListener("keydown", controller.keyListener);
