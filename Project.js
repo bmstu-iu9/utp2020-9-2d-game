@@ -1,4 +1,5 @@
-﻿
+﻿   
+
 const canvas = document.getElementById("game");
 const ctx = canvas.getContext("2d");
 
@@ -187,7 +188,23 @@ var segmentAnimation = function (obj) {
         if(ll) drawRect(legL, legL.x + legL.width / 2, legL.y + legL.width / 2, obj.a)
         if(lr) drawRect(legR, legR.x + legR.width / 2, legR.y + legR.width / 2, -obj.a)
     }
+    
+        if(controller.hit==true&& player.jump === false&&controller.left== false &&controller.right== false) drawRect(handL, handL.x + handL.width / 2, handL.y + handL.width / 2, obj.a)
+        if(controller.hit1==true &&player.x - Enemy.x >0&& player.jump === false&&controller.left== false &&controller.right== false) drawRect(handR, handR.x + handR.width / 2, handR.y + handR.width / 2, -obj.a)
+                if(controller.hit1==true&&player.x - Enemy.x >0&& player.jump === false&&controller.left== false &&controller.right== false) drawRect(handL, handL.x + handL.width / 2, handL.y + handL.width / 2, 90)
+                        if(controller.hit1==true &&player.x - Enemy.x <0&& player.jump === false&&controller.left== false &&controller.right== false) drawRect(handR, handR.x + handR.width / 2, handR.y + handR.width / 2, -90)
+                if(controller.hit1==true&&player.x - Enemy.x <0&& player.jump === false&&controller.left== false &&controller.right== false) drawRect(handL, handL.x + handL.width / 2, handL.y + handL.width / 2, obj.a)
+                
+        if(controller.hit==true&& player.jump === false&&controller.left== false &&controller.right== false) drawRect(handR, handR.x + handR.width / 2, handR.y + handR.width / 2, -obj.a)
+        
+        if(controller.hit1==true&& player.jump === false&&controller.left== false &&controller.right== false) drawRect(legL, legL.x + legL.width / 2, legL.y + legL.width / 2, obj.a)
+        if(controller.hit1==true&& player.jump === false&&controller.left== false &&controller.right== false) drawRect(legR, legR.x + legR.width / 2, legR.y + legR.width / 2, -obj.a)
+                if(controller.hit==true&&player.x - Enemy.x >0&& player.jump === false&&controller.left== false &&controller.right== false) drawRect(legL, legL.x + legL.width / 2, legL.y + legL.width / 2, 120)
+                if(controller.hit==true&&player.x - Enemy.x >0&& player.jump === false&&controller.left== false &&controller.right== false) drawRect(legR, legR.x + legR.width / 2, legR.y + legR.width / 2, 0)
+                                if(controller.hit==true&&player.x - Enemy.x <0&& player.jump === false&&controller.left== false &&controller.right== false) drawRect(legL, legL.x + legL.width / 2, legL.y + legL.width / 2, 0)
+                if(controller.hit==true&&player.x - Enemy.x <0&& player.jump === false&&controller.left== false &&controller.right== false) drawRect(legR, legR.x + legR.width / 2, legR.y + legR.width / 2, -120)
 
+    
     if(obj.xVelocity !== 0 && obj.jump === false){
         if(obj.xVelocity > 0) {
             obj.a += obj.xVelocity * k;
@@ -426,4 +443,3 @@ function reset1(){
     var y = 100;
     document.getElementById("bar1").value = y;
 }
-
