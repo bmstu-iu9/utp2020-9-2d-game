@@ -1,4 +1,4 @@
-﻿   
+﻿
 
 const canvas = document.getElementById("game");
 const ctx = canvas.getContext("2d");
@@ -64,7 +64,7 @@ var score_audio = new Audio();
 
 score_audio.src = "Rocky-II-Rocky_s-Run-_1979_-YouTube-_online-video-cutter.com_-_1_.mp3";
 if(1==1 ){
-score_audio.play();}
+    score_audio.play();}
 
 var controller = {
     left: false,
@@ -188,23 +188,23 @@ var segmentAnimation = function (obj) {
         if(ll) drawRect(legL, legL.x + legL.width / 2, legL.y + legL.width / 2, obj.a)
         if(lr) drawRect(legR, legR.x + legR.width / 2, legR.y + legR.width / 2, -obj.a)
     }
-    
-        if(controller.hit==true&& player.jump === false&&controller.left== false &&controller.right== false) drawRect(handL, handL.x + handL.width / 2, handL.y + handL.width / 2, obj.a)
-        if(controller.hit1==true &&player.x - Enemy.x >0&& player.jump === false&&controller.left== false &&controller.right== false) drawRect(handR, handR.x + handR.width / 2, handR.y + handR.width / 2, -obj.a)
-                if(controller.hit1==true&&player.x - Enemy.x >0&& player.jump === false&&controller.left== false &&controller.right== false) drawRect(handL, handL.x + handL.width / 2, handL.y + handL.width / 2, 90)
-                        if(controller.hit1==true &&player.x - Enemy.x <0&& player.jump === false&&controller.left== false &&controller.right== false) drawRect(handR, handR.x + handR.width / 2, handR.y + handR.width / 2, -90)
-                if(controller.hit1==true&&player.x - Enemy.x <0&& player.jump === false&&controller.left== false &&controller.right== false) drawRect(handL, handL.x + handL.width / 2, handL.y + handL.width / 2, obj.a)
-                
-        if(controller.hit==true&& player.jump === false&&controller.left== false &&controller.right== false) drawRect(handR, handR.x + handR.width / 2, handR.y + handR.width / 2, -obj.a)
-        
-        if(controller.hit1==true&& player.jump === false&&controller.left== false &&controller.right== false) drawRect(legL, legL.x + legL.width / 2, legL.y + legL.width / 2, obj.a)
-        if(controller.hit1==true&& player.jump === false&&controller.left== false &&controller.right== false) drawRect(legR, legR.x + legR.width / 2, legR.y + legR.width / 2, -obj.a)
-                if(controller.hit==true&&player.x - Enemy.x >0&& player.jump === false&&controller.left== false &&controller.right== false) drawRect(legL, legL.x + legL.width / 2, legL.y + legL.width / 2, 120)
-                if(controller.hit==true&&player.x - Enemy.x >0&& player.jump === false&&controller.left== false &&controller.right== false) drawRect(legR, legR.x + legR.width / 2, legR.y + legR.width / 2, 0)
-                                if(controller.hit==true&&player.x - Enemy.x <0&& player.jump === false&&controller.left== false &&controller.right== false) drawRect(legL, legL.x + legL.width / 2, legL.y + legL.width / 2, 0)
-                if(controller.hit==true&&player.x - Enemy.x <0&& player.jump === false&&controller.left== false &&controller.right== false) drawRect(legR, legR.x + legR.width / 2, legR.y + legR.width / 2, -120)
 
-    
+    if(controller.hit==true&& player.jump === false&&controller.left== false &&controller.right== false) drawRect(handL, handL.x + handL.width / 2, handL.y + handL.width / 2, obj.a)
+    if(controller.hit1==true &&player.x - Enemy.x >0&& player.jump === false&&controller.left== false &&controller.right== false) drawRect(handR, handR.x + handR.width / 2, handR.y + handR.width / 2, -obj.a)
+    if(controller.hit1==true&&player.x - Enemy.x >0&& player.jump === false&&controller.left== false &&controller.right== false) drawRect(handL, handL.x + handL.width / 2, handL.y + handL.width / 2, 90)
+    if(controller.hit1==true &&player.x - Enemy.x <0&& player.jump === false&&controller.left== false &&controller.right== false) drawRect(handR, handR.x + handR.width / 2, handR.y + handR.width / 2, -90)
+    if(controller.hit1==true&&player.x - Enemy.x <0&& player.jump === false&&controller.left== false &&controller.right== false) drawRect(handL, handL.x + handL.width / 2, handL.y + handL.width / 2, obj.a)
+
+    if(controller.hit==true&& player.jump === false&&controller.left== false &&controller.right== false) drawRect(handR, handR.x + handR.width / 2, handR.y + handR.width / 2, -obj.a)
+
+    if(controller.hit1==true&& player.jump === false&&controller.left== false &&controller.right== false) drawRect(legL, legL.x + legL.width / 2, legL.y + legL.width / 2, obj.a)
+    if(controller.hit1==true&& player.jump === false&&controller.left== false &&controller.right== false) drawRect(legR, legR.x + legR.width / 2, legR.y + legR.width / 2, -obj.a)
+    if(controller.hit==true&&player.x - Enemy.x >0&& player.jump === false&&controller.left== false &&controller.right== false) drawRect(legL, legL.x + legL.width / 2, legL.y + legL.width / 2, 120)
+    if(controller.hit==true&&player.x - Enemy.x >0&& player.jump === false&&controller.left== false &&controller.right== false) drawRect(legR, legR.x + legR.width / 2, legR.y + legR.width / 2, 0)
+    if(controller.hit==true&&player.x - Enemy.x <0&& player.jump === false&&controller.left== false &&controller.right== false) drawRect(legL, legL.x + legL.width / 2, legL.y + legL.width / 2, 0)
+    if(controller.hit==true&&player.x - Enemy.x <0&& player.jump === false&&controller.left== false &&controller.right== false) drawRect(legR, legR.x + legR.width / 2, legR.y + legR.width / 2, -120)
+
+
     if(obj.xVelocity !== 0 && obj.jump === false){
         if(obj.xVelocity > 0) {
             obj.a += obj.xVelocity * k;
@@ -222,42 +222,44 @@ var segmentAnimation = function (obj) {
         if(obj.a < 20) obj.a = 20;
         drawControllerAnimation(1, 1, 1, 1);
 
-    
- 
-    
-    } 
-else if((document.getElementById("bar").value == 0&&Enemy.color != "yellow")||document.getElementById("bar1").value == 0){reset();reset1();
-}
 
-else if(controller.hit ||controller.hit1||controller.up){minus1();
-         if(dir === "left"){
-             if(random === 1) {
-                 drawRect(handL, handL.x + handL.width / 2, handL.y + handL.width / 2, 90)
+
+
+    }
+    else if((document.getElementById("bar").value == 0&&Enemy.color != "yellow")||document.getElementById("bar1").value == 0){reset();reset1();
+    }
+
+    else if(controller.hit ||controller.hit1){
+        minus1();
+        let random = Math.floor(Math.random() * 2);
+        if(dir === "left"){
+            if(random === 1) {
+                drawRect(handL, handL.x + handL.width / 2, handL.y + handL.width / 2, 90)
                 drawRect(handR, handR.x + handR.width / 2, handR.y + handR.width / 2, -5)
-                 drawRect(legL, legL.x + legL.width / 2, legL.y + legL.width / 2, 5)
-                 drawRect(legR, legR.x + legR.width / 2, legR.y + legR.width / 2, -5)
-             }
-             else {
-                 drawRect(handL, handL.x + handL.width / 2, handL.y + handL.width / 2, 5)
-                 drawRect(handR, handR.x + handR.width / 2, handR.y + handR.width / 2, -5)
-                 drawRect(legL, legL.x + legL.width / 2, legL.y + legL.width / 2, 90)
-                 drawRect(legR, legR.x + legR.width / 2, legR.y + legR.width / 2, -5)
-             }
-         }
-         if(dir === "right"){
-             if(random === 1) {
-                 drawRect(handL, handL.x + handL.width / 2, handL.y + handL.width / 2, 5)
-                 drawRect(handR, handR.x + handR.width / 2, handR.y + handR.width / 2, -90)
-                 drawRect(legL, legL.x + legL.width / 2, legL.y + legL.width / 2, 5)
-                 drawRect(legR, legR.x + legR.width / 2, legR.y + legR.width / 2, -5)
-             }
-             else {
-                 drawRect(handL, handL.x + handL.width / 2, handL.y + handL.width / 2, 5)
-                 drawRect(handR, handR.x + handR.width / 2, handR.y + handR.width / 2, -5)
-                 drawRect(legL, legL.x + legL.width / 2, legL.y + legL.width / 2, 5)
-                 drawRect(legR, legR.x + legR.width / 2, legR.y + legR.width / 2, -90)
-             }
-         }
+                drawRect(legL, legL.x + legL.width / 2, legL.y + legL.width / 2, 5)
+                drawRect(legR, legR.x + legR.width / 2, legR.y + legR.width / 2, -5)
+            }
+            else {
+                drawRect(handL, handL.x + handL.width / 2, handL.y + handL.width / 2, 5)
+                drawRect(handR, handR.x + handR.width / 2, handR.y + handR.width / 2, -5)
+                drawRect(legL, legL.x + legL.width / 2, legL.y + legL.width / 2, 90)
+                drawRect(legR, legR.x + legR.width / 2, legR.y + legR.width / 2, -5)
+            }
+        }
+        if(dir === "right"){
+            if(random === 1) {
+                drawRect(handL, handL.x + handL.width / 2, handL.y + handL.width / 2, 5)
+                drawRect(handR, handR.x + handR.width / 2, handR.y + handR.width / 2, -90)
+                drawRect(legL, legL.x + legL.width / 2, legL.y + legL.width / 2, 5)
+                drawRect(legR, legR.x + legR.width / 2, legR.y + legR.width / 2, -5)
+            }
+            else {
+                drawRect(handL, handL.x + handL.width / 2, handL.y + handL.width / 2, 5)
+                drawRect(handR, handR.x + handR.width / 2, handR.y + handR.width / 2, -5)
+                drawRect(legL, legL.x + legL.width / 2, legL.y + legL.width / 2, 5)
+                drawRect(legR, legR.x + legR.width / 2, legR.y + legR.width / 2, -90)
+            }
+        }
     } else if(obj.xVelocity === 0 && !obj.jump) {
         obj.a = 5;
         drawControllerAnimation(1, 1, 1, 1);
@@ -290,20 +292,18 @@ var update = function () {
     }
 
     if (player.x - Enemy.x > 50)
-  {
+    {
 
-    Enemy.x += 5;
+        Enemy.xVelocity += 3;
 
     }
 
     else if (player.x - Enemy.x < -50)
-  {
+    {
 
-    Enemy.x -= 5;
+        Enemy.xVelocity -= 3;
 
     }
-
-
 
     player.yVelocity += 0.66;
     player.x += player.xVelocity;
@@ -325,6 +325,26 @@ var update = function () {
     for(var i = 0; i < obstacles.length; i++) {
         collideHandler(obstacles[i], player);
     }
+    Enemy.yVelocity += 0.66;
+    Enemy.x += Enemy.xVelocity;
+    Enemy.y += Enemy.yVelocity;
+    if(Enemy.xVelocity > 0) Enemy.xVelocity = Math.floor(Enemy.xVelocity * 0.8);
+    else if(Enemy.xVelocity < 0) Enemy.xVelocity = Math.ceil(Enemy.xVelocity * 0.8)
+
+    if(Enemy.yVelocity > 1) Enemy.jump = true;
+
+    if (Enemy.x < 0) Enemy.x = 0;
+
+    if (Enemy.x > width - Enemy.width) Enemy.x = width - Enemy.width;
+
+    if (Enemy.y > height - Enemy.height) {
+        Enemy.y = height - Enemy.height;
+        Enemy.yVelocity = 0;
+        Enemy.jump = false;
+    }
+    for(var i = 0; i < obstacles.length; i++) {
+        collideHandler(obstacles[i], Enemy);
+    }
 }
 
 var updateEnemy = function (obj) {if(player.x - Enemy.x > -50 && player.x - Enemy.x < 50){minus();}
@@ -342,17 +362,17 @@ var updateEnemy = function (obj) {if(player.x - Enemy.x > -50 && player.x - Enem
         obj.xVelocity += 3;
         dir = "right"
     }
-     if (controller.hit) {
-         if (dir === "left"){
-         }
-         if (dir === "right"){
-         }
-     }
+    if (controller.hit) {
+        if (dir === "left"){
+        }
+        if (dir === "right"){
+        }
+    }
 
 
     if((document.getElementById("bar").value == 0) ){alert("You lost! "); location.href = 'index.html'; }
-if(document.getElementById("bar1").value == 0&&score == 4){alert("You won! Congratulations!!"); location.href = 'Final.html'; }
- 
+    if(document.getElementById("bar1").value == 0&&score == 4){alert("You won! Congratulations!!"); location.href = 'Final.html'; }
+
     obj.yVelocity += 0.66;
     obj.x += obj.xVelocity;
     obj.y += obj.yVelocity;
@@ -384,23 +404,23 @@ var drawObj = function (obj) {
     ctx.arc(obj.x + obj.width/2, obj.y + obj.width/2.5+10, obj.width/4, Math.PI * 2, false);
     ctx.fill();
     segmentAnimation(obj);
-if((document.getElementById("bar1").value == 0)&&Enemy.color != "green"&&Enemy.color != "blue"&&Enemy.color != " yellow"){reset();reset1();
-    player.x=200;
-    Enemy.x=700;Enemy.color = "green";
-    score = 2;
-    
-}if((document.getElementById("bar1").value == 0)&&Enemy.color == "green" &&Enemy.color != " yellow"){reset();reset1();Enemy.color = "blue";player.x=200;
-    Enemy.x=700;score = 3;}if((document.getElementById("bar1").value == 0)&&Enemy.color == "blue" &&Enemy.color != " yellow"){reset();reset1();Enemy.color = "yellow";player.x=200;
-    Enemy.x=700;score = 4;}
+    if((document.getElementById("bar1").value == 0)&&Enemy.color != "green"&&Enemy.color != "blue"&&Enemy.color != " yellow"){reset();reset1();
+        player.x=200;
+        Enemy.x=700;Enemy.color = "green";
+        score = 2;
+
+    }if((document.getElementById("bar1").value == 0)&&Enemy.color == "green" &&Enemy.color != " yellow"){reset();reset1();Enemy.color = "blue";player.x=200;
+        Enemy.x=700;score = 3;}if((document.getElementById("bar1").value == 0)&&Enemy.color == "blue" &&Enemy.color != " yellow"){reset();reset1();Enemy.color = "yellow";player.x=200;
+        Enemy.x=700;score = 4;}
 }
 var score = 1;
 var draw = function (then) {
     ctx.fillStyle = '#50F1FC';
     ctx.fillRect(0, 0, width, height);
 
- ctx.fillStyle = "#FFFFFF";
- ctx.font = "24px Verdana";
- ctx.fillText("Level " + score, 333, 200);
+    ctx.fillStyle = "#FFFFFF";
+    ctx.font = "24px Verdana";
+    ctx.fillText("Level " + score, 333, 200);
 
 
     drawObj(player);
@@ -414,11 +434,11 @@ if((document.getElementById("bar1").value == 0)&&Enemy.color != "green"&&Enemy.c
     player.x=200;
     Enemy.x=700;Enemy.color = "green";
     score = 2;
-    
+
 }if((document.getElementById("bar1").value == 0)&&Enemy.color == "green"&&Enemy.color != "blue"&&Enemy.color != " yellow" ){reset();reset1();player.x=200;
     Enemy.x=700;Enemy.color = "blue";score = 3;}if((document.getElementById("bar1").value == 0)&&Enemy.color == "blue" &&Enemy.color != " yellow"){reset();reset1();Enemy.color = "yellow";player.x=200;
     Enemy.x=700;score = 4;}
-    
+
 startAnimation(FPS);
 
 window.addEventListener("keydown", controller.keyListener);
