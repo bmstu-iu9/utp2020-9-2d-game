@@ -1,4 +1,5 @@
-﻿const canvas = document.getElementById("game");
+﻿
+const canvas = document.getElementById("game");
 const ctx = canvas.getContext("2d");
 
 width = 800;
@@ -28,7 +29,7 @@ class Obstacle{
 var Enemy = {
     xPrev: 200,
     yPrev: 200,
-    width: 32 * 1.5,
+    width: 32 ,
     height: 64 * 1.5,
     x: 200,
     y: 200,
@@ -42,7 +43,7 @@ var Enemy = {
 var player = {
     xPrev: 0,
     yPrev: 0,
-    width: 32 * 1.5,
+    width: 32 ,
     height: 64 * 1.5,
     x: 0,
     y: 0,
@@ -208,7 +209,7 @@ var segmentAnimation = function (obj) {
  
     
     } 
-else if(document.getElementById("bar").value == 0||document.getElementById("bar1").value == 0){reset();reset1();
+else if((document.getElementById("bar").value == 0&&Enemy.color != "yellow")||document.getElementById("bar1").value == 0){reset();reset1();
 }
 
 else if(controller.hit ||controller.hit1||controller.up){minus1();
@@ -331,16 +332,9 @@ var updateEnemy = function (obj) {if(player.x - Enemy.x > -50 && player.x - Enem
          }
      }
 
-if((document.getElementById("bar1").value == 0)&&Enemy.color != "green"&&Enemy.color != "blue"){
-    player.x=200;
-    Enemy.x=700;Enemy.color = "green";
-    score = 2;
-    
-} if((document.getElementById("bar1").value == 0)&&Enemy.color == "green" ){Enemy.color = "blue";player.x=200;
-    Enemy.x=700;score = 3;}  if((document.getElementById("bar1").value == 0)&&Enemy.color == "blue"&&Enemy.color != "red"&&Enemy.color != "green" ){Enemy.color = "yellow"; player.x=200;
-    Enemy.x=700;score = 4;} 
-    if((document.getElementById("bar").value == 0) ){alert("You lost! "); location.href = 'index.html'; }
 
+    if((document.getElementById("bar").value == 0) ){alert("You lost! "); location.href = 'index.html'; }
+if(document.getElementById("bar1").value == 0&&score == 4){alert("You won! Congratulations!!"); location.href = 'Final.html'; }
  
     obj.yVelocity += 0.66;
     obj.x += obj.xVelocity;
@@ -370,16 +364,16 @@ var drawObj = function (obj) {
     ctx.fillRect(obj.x + 1.5 * obj.width/4, obj.y + obj.height/4, obj.width/4, obj.height/2);
     ctx.beginPath();
     ctx.fillStyle = obj.color;
-    ctx.arc(obj.x + obj.width/2, obj.y + obj.width/2.5, obj.width/4, Math.PI * 2, false);
+    ctx.arc(obj.x + obj.width/2, obj.y + obj.width/2.5+10, obj.width/4, Math.PI * 2, false);
     ctx.fill();
     segmentAnimation(obj);
-if((document.getElementById("bar1").value == 0)&&Enemy.color != "green"&&Enemy.color != "blue"){reset();reset1();
+if((document.getElementById("bar1").value == 0)&&Enemy.color != "green"&&Enemy.color != "blue"&&Enemy.color != " yellow"){reset();reset1();
     player.x=200;
     Enemy.x=700;Enemy.color = "green";
     score = 2;
     
-}if((document.getElementById("bar1").value == 0)&&Enemy.color == "green" ){reset();reset1();Enemy.color = "blue";player.x=200;
-    Enemy.x=700;score = 3;}if((document.getElementById("bar1").value == 0)&&Enemy.color == "blue" ){reset();reset1();Enemy.color = "yellow";player.x=200;
+}if((document.getElementById("bar1").value == 0)&&Enemy.color == "green" &&Enemy.color != " yellow"){reset();reset1();Enemy.color = "blue";player.x=200;
+    Enemy.x=700;score = 3;}if((document.getElementById("bar1").value == 0)&&Enemy.color == "blue" &&Enemy.color != " yellow"){reset();reset1();Enemy.color = "yellow";player.x=200;
     Enemy.x=700;score = 4;}
 }
 var score = 1;
@@ -404,10 +398,10 @@ if((document.getElementById("bar1").value == 0)&&Enemy.color != "green"&&Enemy.c
     Enemy.x=700;Enemy.color = "green";
     score = 2;
     
-}if((document.getElementById("bar1").value == 0)&&Enemy.color == "green" ){reset();reset1();Enemy.color = "blue";player.x=200;
-    Enemy.x=700;score = 3;}if((document.getElementById("bar1").value == 0)&&Enemy.color == "blue" ){reset();reset1();Enemy.color = "yellow";player.x=200;
+}if((document.getElementById("bar1").value == 0)&&Enemy.color == "green"&&Enemy.color != "blue"&&Enemy.color != " yellow" ){reset();reset1();player.x=200;
+    Enemy.x=700;Enemy.color = "blue";score = 3;}if((document.getElementById("bar1").value == 0)&&Enemy.color == "blue" &&Enemy.color != " yellow"){reset();reset1();Enemy.color = "yellow";player.x=200;
     Enemy.x=700;score = 4;}
-    if(document.getElementById("bar1").value == 0&&Enemy.color == "yellow"){alert("You won! Congratulations!!"); location.href = 'Final.html'; }
+    
 startAnimation(FPS);
 
 window.addEventListener("keydown", controller.keyListener);
