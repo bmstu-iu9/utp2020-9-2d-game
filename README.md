@@ -16,4 +16,4 @@ https://github.com/MiNombreEsPetros
 
 # Управление
 
-С помощью стрелок
+С помощью стрелок, кнопок x и z
