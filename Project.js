@@ -1,10 +1,10 @@
-﻿
-
+﻿   
+  
 const canvas = document.getElementById("game");
 const ctx = canvas.getContext("2d");
 
 width = 800;
-height = 600;
+height = 598;
 
 canvas.width = 800;
 canvas.height = 600;
@@ -215,8 +215,9 @@ var segmentAnimation = function (obj) {
     else if((document.getElementById("bar").value == 0&&Enemy.color != "yellow")||document.getElementById("bar1").value == 0){reset();reset1();
     }
 
-    else if(controller.hit || controller.hit1 || (obj === Enemy && Math.abs(Enemy.x - player.x) <= 50)){
-        minus1();
+    else if(controller.hit || controller.hit1 || controller.up||(Enemy===obj)&&(Math.abs(Enemy.x - player.x)  <= 50)){
+       if((controller.hit || controller.hit1 || controller.up)&&(Math.abs(Enemy.x - player.x)  <= 50)){ minus1();if(document.getElementById("bar1").value == 0&&score==4&&Enemy.color != "green"&&Enemy.color != "red"&&Enemy.color != "blue"){alert("You won! Congratulations!!"); location.href = 'Final.html'; } }
+                   
         let random = Math.floor(Math.random() * 2);
         if(Enemy.x - player.x < 0 && Enemy.x - player.x >= -50){
             if(random === 1) {
@@ -284,7 +285,8 @@ var segmentAnimation = function (obj) {
         drawControllerAnimation(1, 1, 1, 1);
     }
     console.log(player.a);
-}
+} 
+
 
 var update = function () {
     player.xPrev = player.x;
@@ -388,9 +390,10 @@ var updateEnemy = function (obj) {if(player.x - Enemy.x > -50 && player.x - Enem
         }
     }
 
-
-    if((document.getElementById("bar").value == 0) ){alert("You lost! "); location.href = 'index.html'; }
-    if(document.getElementById("bar1").value == 0&&score == 4){alert("You won! Congratulations!!"); location.href = 'Final.html'; }
+if(Math.abs(Enemy.x - player.x) >=110&&Math.abs(Enemy.x - player.x) <=153){Enemy.y-=30;}
+ if((document.getElementById("bar").value == 0) ){alert("You lost! "); location.href = 'index.html'; }
+  
+    
 
     obj.yVelocity += 0.66;
     obj.x += obj.xVelocity;
